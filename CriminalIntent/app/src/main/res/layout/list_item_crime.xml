@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/solved_check_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:padding="@dimen/list_item_padding"/>
+        <CheckBox
+            android:id="@+id/solved_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/list_item_padding"/>
 
-    <TextView
-        android:id="@+id/title_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/solved_check_box"
-        android:textStyle="bold"
-        tools:text="Crime Title"
-        android:padding="@dimen/list_item_padding"/>
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/solved_check_box"
+            android:textStyle="bold"
+            tools:text="Crime Title"
+            android:padding="@dimen/list_item_padding"/>
 
-    <TextView
-        android:id="@+id/date_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/solved_check_box"
-        android:layout_below="@id/title_text_view"
-        tools:text="Crime Date"
-        android:padding="@dimen/list_item_padding_2x"/>
-    
-</RelativeLayout>
+        <TextView
+            android:id="@+id/date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/solved_check_box"
+            android:layout_below="@id/title_text_view"
+            tools:text="Crime Date"
+            android:padding="@dimen/list_item_padding_2x"/>
+
+    </RelativeLayout>
+</layout>

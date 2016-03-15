@@ -1,6 +1,8 @@
 package com.bignerdranch.android.criminalintent;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.bignerdranch.android.criminalintent.databinding.ListItemCrimeBinding;
 
 import java.util.List;
 
@@ -130,8 +134,8 @@ public class CrimeListFragment extends Fragment {
 
         private Crime mCrime;
 
-        public CrimeHolder(View itemView) {
-            super(itemView);
+        public CrimeHolder(ListItemCrimeBinding binding) {
+            super(binding.getRoot());
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.title_text_view);
@@ -164,8 +168,9 @@ public class CrimeListFragment extends Fragment {
         @Override
         public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(R.layout.list_item_crime, parent, false);
-            return new CrimeHolder(view);
+            ListItemCrimeBinding binding = DataBindingUtil
+                    .inflate(layoutInflater, R.layout.list_item_crime, parent, false);
+            return new CrimeHolder(binding);
         }
 
         @Override
