@@ -134,9 +134,9 @@ public class CrimeListFragment extends Fragment {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_crime_title_text_view);
-            mDateTextView = (TextView) itemView.findViewById(R.id.list_item_crime_date_text_view);
-            mSolvedCheckBox = (CheckBox) itemView.findViewById(R.id.list_item_crime_solved_check_box);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.title_text_view);
+            mDateTextView = (TextView) itemView.findViewById(R.id.date_text_view);
+            mSolvedCheckBox = (CheckBox) itemView.findViewById(R.id.solved_check_box);
         }
 
         public void bindCrime(Crime crime) {
