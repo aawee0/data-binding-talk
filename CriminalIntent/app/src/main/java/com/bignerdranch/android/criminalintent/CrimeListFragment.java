@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -125,36 +127,24 @@ public class CrimeListFragment extends Fragment {
         updateSubtitle();
     }
 
-    public class CrimeHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
+    public class CrimeHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTitleTextView;
-        private TextView mDateTextView;
-        private CheckBox mSolvedCheckBox;
+        private final ListItemCrimeBinding mBinding;
+        private final CrimeViewModel mCrimeViewModel;
 
-        private Crime mCrime;
 
         public CrimeHolder(ListItemCrimeBinding binding) {
             super(binding.getRoot());
-            itemView.setOnClickListener(this);
-
-            mTitleTextView = (TextView) itemView.findViewById(R.id.title_text_view);
-            mDateTextView = (TextView) itemView.findViewById(R.id.date_text_view);
-            mSolvedCheckBox = (CheckBox) itemView.findViewById(R.id.solved_check_box);
+            mCrimeViewModel = new CrimeViewModel(getActivity());
+            binding.setViewModel(mCrimeViewModel);
+            mBinding = binding;
         }
 
         public void bindCrime(Crime crime) {
-            mCrime = crime;
-            mTitleTextView.setText(mCrime.getTitle());
-            mDateTextView.setText(mCrime.getDate().toString());
-            mSolvedCheckBox.setChecked(mCrime.isSolved());
+            mCrimeViewModel.setCrime(crime);
+            mBinding.executePendingBindings();
         }
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
-            startActivity(intent);
-        }
     }
 
     private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
