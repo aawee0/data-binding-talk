@@ -38,7 +38,7 @@ public class CrimeViewModel extends BaseObservable {
     public void setCrime(Crime crime) {
         mCrime = crime;
         List<String> strings;
-        notifyAll();
+        notifyChange();
     }
 
     public void onCrimeClicked() {
